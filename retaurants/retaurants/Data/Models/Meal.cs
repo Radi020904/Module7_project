@@ -9,6 +9,8 @@ namespace restaurants.Data.Models
 {
     public class Meal
     {
+        
+
         /// <summary>
         /// Primary Key
         /// </summary>
@@ -21,7 +23,7 @@ namespace restaurants.Data.Models
         [Range(typeof(double), "0.99", "99.99")]
         public double Price { get; set; }
         [Required]
-        [Range(typeof(double), "0.99", "99.99")]
+        [Range(typeof(double), "0.99", "999.99")]
         public double PortionSize { get; set; }
         [Required]
         [MaxLength(50, ErrorMessage = "meal type is too long")]
