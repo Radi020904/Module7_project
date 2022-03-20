@@ -13,6 +13,14 @@ namespace restaurants.Business
         private RestaurantsContext context;
 
         /// <summary>
+        /// Constructer used in tests
+        /// </summary>
+        public MealBusiness(RestaurantsContext context)
+        {
+            this.context = context;
+        }
+
+        /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
         public MealBusiness()

@@ -1,6 +1,7 @@
 ﻿using restaurants.Business;
 using restaurants.Data.Models;
 using restaurants.Presentation.Views;
+using restaurants.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,7 @@ namespace restaurants
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-            
-            var mealView = new MealView();
+            Display display = new Display();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace restaurants.Data.Models
         public DateTime CreationDate { get; set; }
         [ForeignKey(nameof(Restaurant))]
         public int RestaurantId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        public  Restaurant Restaurant { get; set; }
 
         public override string ToString()
         {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using restaurants.Data;
 
 namespace restaurants.Migrations
 {
     [DbContext(typeof(RestaurantsContext))]
-    partial class RestaurantsContextModelSnapshot : ModelSnapshot
+    [Migration("20220319201228_insertRestaurantAndCompany")]
+    partial class insertRestaurantAndCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -558,80 +560,6 @@ namespace restaurants.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Staffs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Age = 28.0,
-                            FirstName = "Samuel",
-                            Job = "Chef",
-                            LastName = "Umtiti",
-                            Salary = 900.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Age = 30.0,
-                            FirstName = "Martin",
-                            Job = "Waiter",
-                            LastName = "Braithwaite",
-                            Salary = 600.0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Age = 23.0,
-                            FirstName = "Kylian",
-                            Job = "Chef",
-                            LastName = "Mbappe",
-                            Salary = 1000.0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Age = 21.0,
-                            FirstName = "Erling",
-                            Job = "Waiter",
-                            LastName = "Halland",
-                            Salary = 800.0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Age = 34.0,
-                            FirstName = "Lionel",
-                            Job = "Bartender",
-                            LastName = "Messi",
-                            Salary = 1100.0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Age = 35.0,
-                            FirstName = "Luis",
-                            Job = "Waiter",
-                            LastName = "Suarez",
-                            Salary = 800.0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Age = 35.0,
-                            FirstName = "Sergio",
-                            Job = "Dunerman",
-                            LastName = "Ramos",
-                            Salary = 1000.0
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Age = 30.0,
-                            FirstName = "Carlos",
-                            Job = "Waiter",
-                            LastName = "Casemiro",
-                            Salary = 700.0
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.StaffRestaurant", b =>
@@ -647,48 +575,6 @@ namespace restaurants.Migrations
                     b.HasIndex("StaffId");
 
                     b.ToTable("StaffRestaurants");
-
-                    b.HasData(
-                        new
-                        {
-                            RestaurantId = 1,
-                            StaffId = 1
-                        },
-                        new
-                        {
-                            RestaurantId = 1,
-                            StaffId = 2
-                        },
-                        new
-                        {
-                            RestaurantId = 2,
-                            StaffId = 3
-                        },
-                        new
-                        {
-                            RestaurantId = 2,
-                            StaffId = 4
-                        },
-                        new
-                        {
-                            RestaurantId = 3,
-                            StaffId = 5
-                        },
-                        new
-                        {
-                            RestaurantId = 3,
-                            StaffId = 6
-                        },
-                        new
-                        {
-                            RestaurantId = 4,
-                            StaffId = 7
-                        },
-                        new
-                        {
-                            RestaurantId = 4,
-                            StaffId = 8
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.Company", b =>

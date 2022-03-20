@@ -42,7 +42,7 @@ namespace restaurants.Data.Models
             string result = "Restaurant:\n";
             result += $"name: {Name}\n";
             result += $"location: {Location}\n";
-            result += $"{MenuId.ToString()}\n";
+            result += $"{Menu.ToString()}\n";
             result += $"capacity: {Capacity}\n";
             result += $"link: {Link}";
             return result;

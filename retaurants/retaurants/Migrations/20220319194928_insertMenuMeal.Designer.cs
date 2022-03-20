@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using restaurants.Data;
 
 namespace restaurants.Migrations
 {
     [DbContext(typeof(RestaurantsContext))]
-    partial class RestaurantsContextModelSnapshot : ModelSnapshot
+    [Migration("20220319194928_insertMenuMeal")]
+    partial class insertMenuMeal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,40 +49,6 @@ namespace restaurants.Migrations
                     b.HasIndex("RestaurantId");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(2005, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "martisbakery",
-                            OwnerName = "Marti",
-                            RestaurantId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(2009, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "atasmcdonalds",
-                            OwnerName = "Ata",
-                            RestaurantId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreationDate = new DateTime(2004, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "radisbar",
-                            OwnerName = "Radi",
-                            RestaurantId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreationDate = new DateTime(2003, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "ganisdoner",
-                            OwnerName = "Gani",
-                            RestaurantId = 4
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.Meal", b =>
@@ -487,44 +455,6 @@ namespace restaurants.Migrations
                     b.HasIndex("MenuId");
 
                     b.ToTable("Restaurants");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Capacity = 50,
-                            Link = "https://martisbakery/PinchOfSalt.com",
-                            Location = "Haskovo",
-                            MenuId = 1,
-                            Name = "PinchOfSalt"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Capacity = 40,
-                            Link = "https://atasmcdonalds/HaskovoMcDonald.com",
-                            Location = "Haskovo",
-                            MenuId = 2,
-                            Name = "HaskovoMcDonald"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Capacity = 200,
-                            Link = "https://radisbar/Sense.com",
-                            Location = "Barcelona",
-                            MenuId = 3,
-                            Name = "Sense"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Capacity = 30,
-                            Link = "https://ganisdoner/HisarDoner.com",
-                            Location = "Istanbul",
-                            MenuId = 4,
-                            Name = "HisarDoner"
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.Staff", b =>
@@ -558,80 +488,6 @@ namespace restaurants.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Staffs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Age = 28.0,
-                            FirstName = "Samuel",
-                            Job = "Chef",
-                            LastName = "Umtiti",
-                            Salary = 900.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Age = 30.0,
-                            FirstName = "Martin",
-                            Job = "Waiter",
-                            LastName = "Braithwaite",
-                            Salary = 600.0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Age = 23.0,
-                            FirstName = "Kylian",
-                            Job = "Chef",
-                            LastName = "Mbappe",
-                            Salary = 1000.0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Age = 21.0,
-                            FirstName = "Erling",
-                            Job = "Waiter",
-                            LastName = "Halland",
-                            Salary = 800.0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Age = 34.0,
-                            FirstName = "Lionel",
-                            Job = "Bartender",
-                            LastName = "Messi",
-                            Salary = 1100.0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Age = 35.0,
-                            FirstName = "Luis",
-                            Job = "Waiter",
-                            LastName = "Suarez",
-                            Salary = 800.0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Age = 35.0,
-                            FirstName = "Sergio",
-                            Job = "Dunerman",
-                            LastName = "Ramos",
-                            Salary = 1000.0
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Age = 30.0,
-                            FirstName = "Carlos",
-                            Job = "Waiter",
-                            LastName = "Casemiro",
-                            Salary = 700.0
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.StaffRestaurant", b =>
@@ -647,48 +503,6 @@ namespace restaurants.Migrations
                     b.HasIndex("StaffId");
 
                     b.ToTable("StaffRestaurants");
-
-                    b.HasData(
-                        new
-                        {
-                            RestaurantId = 1,
-                            StaffId = 1
-                        },
-                        new
-                        {
-                            RestaurantId = 1,
-                            StaffId = 2
-                        },
-                        new
-                        {
-                            RestaurantId = 2,
-                            StaffId = 3
-                        },
-                        new
-                        {
-                            RestaurantId = 2,
-                            StaffId = 4
-                        },
-                        new
-                        {
-                            RestaurantId = 3,
-                            StaffId = 5
-                        },
-                        new
-                        {
-                            RestaurantId = 3,
-                            StaffId = 6
-                        },
-                        new
-                        {
-                            RestaurantId = 4,
-                            StaffId = 7
-                        },
-                        new
-                        {
-                            RestaurantId = 4,
-                            StaffId = 8
-                        });
                 });
 
             modelBuilder.Entity("restaurants.Data.Models.Company", b =>

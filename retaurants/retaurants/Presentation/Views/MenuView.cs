@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace restaurants.Presentation.Views
 {
-    public class MealView
+    public class MenuView
     {
-        private MealBusiness MealBusiness = new MealBusiness();
+        private MenuBusiness MenuBusiness = new MenuBusiness();
 
         /// <summary>
         /// Constructor used by the display.
         /// </summary>
-        public MealView()
+        public MenuView()
         {
             Input();
         }
@@ -26,13 +26,13 @@ namespace restaurants.Presentation.Views
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 15) + "MEAL MENU" + new string(' ', 16));
+            Console.WriteLine(new string(' ', 15) + "MENU MENU" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine("1. List all meals");
-            Console.WriteLine("2. Add new meal");
-            Console.WriteLine("3. Update meal");
-            Console.WriteLine("4. Fetch meal by ID");
-            Console.WriteLine("5. Delete meal by ID");
+            Console.WriteLine("1. List all menus");
+            Console.WriteLine("2. Add new menu");
+            Console.WriteLine("3. Update menu");
+            Console.WriteLine("4. Fetch menu by ID");
+            Console.WriteLine("5. Delete menu by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
 
@@ -61,97 +61,97 @@ namespace restaurants.Presentation.Views
         }
 
         /// <summary>
-        /// Aks the user for meal characteristics and creates a meal with those characteristics, after that adds that meal to the table Meals.
+        /// Aks the user for menu characteristics and creates a menu with those characteristics, after that adds that menu to the table Menus.
         /// </summary>
         private void Add()
         {
-            Meal meal = new Meal();
-            Console.WriteLine("Enter meal name: ");
-            meal.Name = Console.ReadLine();
-            Console.WriteLine("Enter price: ");
-            meal.Price = double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter portionsize(g): ");
-            meal.PortionSize = double.Parse(Console.ReadLine());
+            Menu menu = new Menu();
+            Console.WriteLine("Enter menu rating: ");
+            menu.Rating = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter type: ");
-            meal.Type = Console.ReadLine();
-            MealBusiness.Add(meal);
+            menu.Type = Console.ReadLine();
+            Console.WriteLine("Enter language: ");
+            menu.Language = Console.ReadLine();
+            Console.WriteLine("Enter link: ");
+            menu.Link = Console.ReadLine();
+            MenuBusiness.Add(menu);
         }
 
         /// <summary>
-        /// Lists all meals from the table Meals.
+        /// Lists all menus from the table Menus.
         /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 18) + "Meals" + new string(' ', 17));
+            Console.WriteLine(new string(' ', 18) + "Menus" + new string(' ', 17));
             Console.WriteLine(new string('-', 40));
-            List<Meal> meals = MealBusiness.GetAll();
-            Console.WriteLine("Id || Name || Price || Portionsize || Type");
-            foreach (Meal meal in meals)
+            List<Menu> menus = MenuBusiness.GetAll();
+            Console.WriteLine("Id || Rating || Type || Language || Link");
+            foreach (Menu menu in menus)
             {
-                Console.WriteLine($"{meal.Id} || {meal.Name} || {meal.Price} || {meal.PortionSize} || {meal.Type}");
+                Console.WriteLine($"{menu.Id} || {menu.Rating} || {menu.Type} || {menu.Language} || {menu.Link}");
             }
             Console.WriteLine(new string('-', 40));
         }
 
         /// <summary>
-        /// Asks the user for id, after that finds the meal with that id and asks for changes.
+        /// Asks the user for id, after that finds the menu with that id and asks for changes.
         /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
             int id = int.Parse(Console.ReadLine());
-            Meal meal = MealBusiness.Get(id);
-            if (meal != null)
+            Menu menu = MenuBusiness.Get(id);
+            if (menu != null)
             {
-                Console.WriteLine("Enter name: ");
-                meal.Name = Console.ReadLine();
-                Console.WriteLine("Enter price: ");
-                meal.Price = double.Parse(Console.ReadLine());
-                Console.WriteLine("Enter portionsize: ");
-                meal.PortionSize = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter rating: ");
+                menu.Rating = double.Parse(Console.ReadLine());
                 Console.WriteLine("Enter type: ");
-                meal.Type = Console.ReadLine();
-                MealBusiness.Update(meal);
+                menu.Type = Console.ReadLine();
+                Console.WriteLine("Enter language: ");
+                menu.Language = Console.ReadLine();
+                Console.WriteLine("Enter link: ");
+                menu.Link = Console.ReadLine();
+                MenuBusiness.Update(menu);
             }
             else
             {
-                Console.WriteLine("Meal not found!");
+                Console.WriteLine("Menu not found!");
             }
         }
 
         /// <summary>
-        /// Asks the user for id, after that lists the meal with that id.
+        /// Asks the user for id, after that lists the menu with that id.
         /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
             int id = int.Parse(Console.ReadLine());
-            Meal meal = MealBusiness.Get(id);
-            if (meal != null)
+            Menu menu = MenuBusiness.Get(id);
+            if (menu != null)
             {
                 Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + meal.Id);
-                Console.WriteLine("Name: " + meal.Name);
-                Console.WriteLine("Price: " + meal.Price);
-                Console.WriteLine("Portionsize: " + meal.PortionSize);
-                Console.WriteLine("Type: " + meal.Type);
+                Console.WriteLine("Id: " + menu.Id);
+                Console.WriteLine("Rating: " + menu.Rating);
+                Console.WriteLine("Type: " + menu.Type);
+                Console.WriteLine("Language: " + menu.Language);
+                Console.WriteLine("Link: " + menu.Link);
                 Console.WriteLine(new string('-', 40));
             }
             else
             {
-                Console.WriteLine("Meal not found!");
+                Console.WriteLine("Menu not found!");
             }
         }
 
         /// <summary>
-        /// Asks the user for id, after that deletes the meal with that id.
+        /// Asks the user for id, after that deletes the menu with that id.
         /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");
             int id = int.Parse(Console.ReadLine());
-            MealBusiness.Delete(id);
+            MenuBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
     }
