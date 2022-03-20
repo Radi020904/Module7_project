@@ -19,13 +19,13 @@ namespace restaurants.Data
         {
 
         }
-        public DbSet<Meal> Meals { get; set; }
-        public DbSet<MenuMeal> MenuMeals { get; set; }
-        public DbSet<Menu> Menus { get; set; }
-        public DbSet<Restaurant> Restaurants { get; set; }
-        public DbSet<StaffRestaurant> StaffRestaurants { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
-        public DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Meal> Meals { get; set; }
+        public virtual DbSet<MenuMeal> MenuMeals { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<StaffRestaurant> StaffRestaurants { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if(!optionsBuilder.IsConfigured)

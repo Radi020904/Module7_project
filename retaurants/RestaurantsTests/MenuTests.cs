@@ -29,9 +29,9 @@ namespace RestaurantsTests
         {
             var data = new List<Menu>
             {
-                new Menu { Id = 1, Rating = 5, Type="Item1", Language = "bulgarian", Link = "aa.com" },
-                new Menu { Id = 2, Rating = 5, Type="Item2", Language = "bulgarian", Link = "aa.com" },
-                new Menu { Id = 3, Rating = 5, Type="Item3", Language = "bulgarian", Link = "aa.com" },
+                new Menu {Type="Item1"},
+                new Menu {Type="Item2"},
+                new Menu {Type="Item3"},
             }.AsQueryable();
             var mockSet = new Mock<DbSet<Menu>>();
             mockSet.As<IQueryable<Menu>>().Setup(m => m.Provider).Returns(data.Provider);
@@ -59,9 +59,9 @@ namespace RestaurantsTests
         {
             var data = new List<Menu>
             {
-                new Menu { Type="Item1" },
-                new Menu { Type="Item2" },
-                new Menu { Type="Item3" },
+                new Menu {Type="Item1"},
+                new Menu {Type="Item2"},
+                new Menu {Type="Item3"},
             }.AsQueryable();
             var mockSet = new Mock<DbSet<Menu>>();
             mockSet.As<IQueryable<Menu>>().Setup(m => m.Provider).Returns(data.Provider);
